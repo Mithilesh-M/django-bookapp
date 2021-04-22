@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Book, Genre, Publisher, Author
 from django.views import generic
+from django.urls import reverse_lazy
 
 def index(request):
     context = {
@@ -14,3 +15,8 @@ def index(request):
 
 class Booklistview(generic.ListView):
     model = Book
+
+class Bookcreateview(generic.CreateView):
+    model = Book
+    fields = ['title','no_of_page','cover_image','description','genre','publisher','author','published_date']
+    success_url = reverse_lazy('book-list')
