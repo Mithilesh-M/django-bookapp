@@ -9,4 +9,5 @@ urlpatterns = [
     path('genre/create/',views.Genrecreateview.as_view(), name='genre-create'),
     path('author/', views.Authorlistview.as_view(), name='author-list'),
     path('author/create', views.Authorcreateview.as_view(), name='author-create'),
+    path('publisher/', views.Publisherlistview.as_view(), name='publisher-list'),
 ]
