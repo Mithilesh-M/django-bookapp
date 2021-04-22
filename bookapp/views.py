@@ -18,7 +18,7 @@ class Booklistview(generic.ListView):
 
 class Bookcreateview(generic.CreateView):
     model = Book
-    fields = ['title','no_of_page','cover_image','description','genre','publisher','author','published_date']
+    fields = ['title','isbn','no_of_page','cover_image','description','genre','publisher','author','published_date']
     success_url = reverse_lazy('book-list')
 
 class Genrelistview(generic.ListView):
