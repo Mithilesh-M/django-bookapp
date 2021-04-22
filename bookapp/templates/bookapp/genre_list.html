@@ -8,12 +8,12 @@
             </a>
         </button>
         <button style="border-color: black;" disabled>
-            <a onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" href="" style="text-decoration: none;">Create Genre
+            <a onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" href="{% url 'genre-create' %}" style="text-decoration: none;">Create Genre
             </a>
         </button>
         <br><br>
         <h1>Genre List</h1>
-        {% if Genre_list %}
+        {% if genre_list %}
           <table style="width:100%">
             {% for genre in genre_list %}
             <tr>

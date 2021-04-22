@@ -23,3 +23,8 @@ class Bookcreateview(generic.CreateView):
 
 class Genrelistview(generic.ListView):
     model = Genre
+
+class Genrecreateview(generic.CreateView):
+    model = Genre
+    fields = ['name']
+    success_url = reverse_lazy('genre-list')
