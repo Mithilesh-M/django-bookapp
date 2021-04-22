@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <div style="margin: 1%">
+        <button style="border-radius: 50%;border-color: black;" disabled>
+            <a href="{% url 'index' %}">
+            <i class="fa fa-arrow-left" onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" ></i>
+            </a>
+        </button>
+        <button style="border-color: black;" disabled>
+            <a onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" href="" style="text-decoration: none;">Create Author
+            </a>
+        </button>
+        <br><br>
+        <h1>Genre List</h1>
+        {% if author_list %}
+          <table style="width:100%">
+            {% for author in author_list %}
+            <tr>
+              <th style="text-align: center;"><a class="mylist-ele" href="">{{ author.name }}</a></th>
+              <th><button class="mybutton"><a href="">Delete</a></button></th>
+              <th><button class="mybutton"><a href="">Update</a></button></th>
+            </tr>
+            {% endfor %}
+          </table>
+          {% else %}
+            <p>There are no book created in this app.</p>
+          {% endif %}
+    </div>
+{% endblock %}
