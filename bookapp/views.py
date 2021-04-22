@@ -45,6 +45,11 @@ class Authorcreateview(generic.CreateView):
     fields = ['name','bio','phone']
     success_url = reverse_lazy('author-list')
 
+class Authordeleteview(generic.DeleteView):
+    model = Author
+    success_url = reverse_lazy('genre-list')
+
+
 class Publisherlistview(generic.ListView):
     model = Publisher
 
