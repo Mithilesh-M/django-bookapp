@@ -31,3 +31,8 @@ class Genrecreateview(generic.CreateView):
 
 class Authorlistview(generic.ListView):
     model = Author
+
+class Authorcreateview(generic.CreateView):
+    model = Author
+    fields = ['name','bio','phone']
+    success_url = reverse_lazy('author-list')
