@@ -21,6 +21,10 @@ class Bookcreateview(generic.CreateView):
     fields = ['title','isbn','no_of_page','cover_image','description','genre','publisher','author','published_date']
     success_url = reverse_lazy('book-list')
 
+class Bookdeleteview(generic.DeleteView):
+    model = Book
+    success_url = reverse_lazy('book-list')
+
 class Genrelistview(generic.ListView):
     model = Genre
 
