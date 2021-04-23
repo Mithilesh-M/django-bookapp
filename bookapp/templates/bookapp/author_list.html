@@ -19,7 +19,7 @@
             <tr>
               <th style="text-align: center;"><a class="mylist-ele" href="">{{ author.name }}</a></th>
               <th><button class="mybutton"><a href="{% url 'author-delete' author.id %}">Delete</a></button></th>
-              <th><button class="mybutton"><a href="">Update</a></button></th>
+              <th><button class="mybutton"><a href="{% url 'author-update' author.id %}">Update</a></button></th>
             </tr>
             {% endfor %}
           </table>
