@@ -17,7 +17,7 @@
           <table style="width:100%">
             {% for publisher in publisher_list %}
             <tr>
-              <th style="text-align: center;"><a class="mylist-ele" href="">{{ publisher.name }}</a></th>
+              <th style="text-align: center;"><a class="mylist-ele" href="{% url 'publisher-detail' publisher.id %}">{{ publisher.name }}</a></th>
               <th><button class="mybutton"><a href="{% url 'publisher-delete' publisher.id %}">Delete</a></button></th>
               <th><button class="mybutton"><a href="{% url 'publisher-update' publisher.id %}">Update</a></button></th>
             </tr>

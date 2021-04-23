@@ -21,5 +21,6 @@ urlpatterns = [
     path('publisher/', views.Publisherlistview.as_view(), name='publisher-list'),
     path('publisher/create', views.Publishercreateview.as_view(), name='publisher-create'),
     path('publisher/delete/<int:pk>', views.Publisherdeleteview.as_view(), name='publisher-delete'),
+    path('publisher/detail/<int:pk>', views.Publisherdetailview.as_view(), name='publisher-detail'),
     path('publisher/update/<int:pk>', views.Publisherupdateview.as_view(), name='publisher-update'),
 ]

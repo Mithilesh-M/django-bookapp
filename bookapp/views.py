@@ -89,3 +89,6 @@ class Publisherupdateview(generic.UpdateView):
     model = Publisher
     fields = ['name','address','description','phone']
     success_url = reverse_lazy('publisher-list')
+
+class Publisherdetailview(generic.DetailView):
+    model = Publisher

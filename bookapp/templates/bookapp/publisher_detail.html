@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{% load static %}
+  <button style="border-radius: 50%;border-color: black;" disabled>
+    <a href="{% url 'publisher-list' %}">
+    <i class="fa fa-arrow-left" onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" ></i>
+    </a>
+  </button>
+  <button style="border-color: black;" disabled>
+    <a onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" href="{% url 'publisher-delete' publisher.id %}" style="text-decoration: none;">Delete
+    </a>
+  </button>
+  <button style="border-color: black;" disabled>
+    <a onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" href="{% url 'publisher-update' publisher.id %}" style="text-decoration: none;">Update
+    </a>
+  </button>
+  <br><br>
+  <h3>Publisher Detail</h3>
+  <p><strong>Name: </strong>{{ publisher.name }}</p>
+  <p><strong>Address: </strong>{{ publisher.address }}</p>
+  <p><strong>Description: </strong>{{ publisher.description }}</p>
+  <p><strong>Phone No: </strong>{{ publisher.phone }}</p>
+  <p><strong>Books by this publisher: </strong></p>
+    {% if publisher.book_set.all %}
+      <ul>
+        {% for book in publisher.book_set.all %}
+          <li>{{ book }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      No book by this publisher
+    {% endif %}
+  </p>
+{% endblock %}
