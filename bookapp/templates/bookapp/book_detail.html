@@ -20,7 +20,7 @@
   <p><strong>Title: </strong>{{ book.title }}</p>
   <p><strong>ISBN: </strong>{{ book.isbn }}</p>
   <p><strong>No.Of Pages: </strong>{{ book.no_of_page }}</p>
-  <p><strong>Page Cover: </strong><img src="{% static '/images/penguin.gif' %}"></p>
+  <p><strong>Page Cover: </strong><img src="{% static image_name %}" width="50%" height="50%"></p>
   <p><strong>Description: </strong>{{ book.description }}</p>
   <p><strong>Genre: </strong>
     {% if book.genre.all %}

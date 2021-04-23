@@ -3,6 +3,7 @@ from .models import Book, Genre, Publisher, Author
 from django.views import generic
 from django.urls import reverse_lazy
 from .filters import BookFilter
+import os
 
 def index(request):
     context = {
@@ -28,6 +29,15 @@ class Bookdeleteview(generic.DeleteView):
 
 class Bookdetailview(generic.DetailView):
     model = Book
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        obj = Book.objects.get(pk=self.kwargs.get('pk'))
+        image = obj.cover_image.name
+        image = os.path.basename(image)
+        image = 'images'+'//'+image
+        context['image_name'] = image
+        return context
 
 class Bookupdateview(generic.UpdateView):
     model = Book
@@ -93,6 +103,7 @@ class Publisherupdateview(generic.UpdateView):
 
 class Publisherdetailview(generic.DetailView):
     model = Publisher
+
 
 def Filter(request):
     books = Book.objects.all()
