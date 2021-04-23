@@ -79,3 +79,7 @@ class Publisherdeleteview(generic.DeleteView):
     model = Publisher
     success_url = reverse_lazy('publisher-list')
 
+class Publisherupdateview(generic.UpdateView):
+    model = Publisher
+    fields = ['name','address','description','phone']
+    success_url = reverse_lazy('publisher-list')
