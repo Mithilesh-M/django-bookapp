@@ -5,7 +5,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200, help_text="Enter book title")
     isbn = models.UUIDField(unique=True,default = uuid.uuid4)
     no_of_page = models.DecimalField("Enter no.of page",decimal_places=0,max_digits=6)
-    cover_image = models.ImageField(upload_to='bookapp/static/images')
+    cover_image = models.ImageField(upload_to='bookapp/static/images',null=True,blank=True)
     description = models.TextField(max_length=500, help_text="Enter description")
     genre = models.ManyToManyField('Genre')
     publisher = models.ManyToManyField('Publisher')
