@@ -25,6 +25,9 @@ class Bookdeleteview(generic.DeleteView):
     model = Book
     success_url = reverse_lazy('book-list')
 
+class Bookdetailview(generic.DetailView):
+    model = Book
+
 class Genrelistview(generic.ListView):
     model = Genre
 

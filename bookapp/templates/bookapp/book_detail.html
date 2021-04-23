@@ -1,0 +1,49 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{% load static %}
+  <button style="border-radius: 50%;border-color: black;" disabled>
+    <a href="{% url 'book-list' %}">
+    <i class="fa fa-arrow-left" onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" ></i>
+    </a>
+  </button>
+  <button style="border-color: black;" disabled>
+    <a onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" href="{% url 'book-delete' book.id %}" style="text-decoration: none;">Delete
+    </a>
+  </button>
+  <button style="border-color: black;" disabled>
+    <a onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" href="" style="text-decoration: none;">Update
+    </a>
+  </button>
+  <br><br>
+  <h3>Book Detail</h3>
+  <p><strong>Title: </strong>{{ book.title }}</p>
+  <p><strong>ISBN: </strong>{{ book.isbn }}</p>
+  <p><strong>No.Of Pages: </strong>{{ book.no_of_page }}</p>
+  <p><strong>Page Cover: </strong><img src="{% static '/images/penguin.gif' %}"></p>
+  <p><strong>Description: </strong>{{ book.description }}</p>
+  <p><strong>Genre: </strong>
+    {% if book.genre.all %}
+      <ul>
+        {% for genre in book.genre.all %}
+          <li>{{ genre }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      No genre for this book
+    {% endif %}
+  </p>
+  <p><strong>Publisher: </strong>
+    {% if book.publisher.all %}
+      <ul>
+        {% for publisher in book.publisher.all %}
+          <li>{{ publisher }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      No publisher for this book
+    {% endif %}
+  </p>
+  <p><strong>Author: </strong>{{ book.author }}</p>
+  <p><strong>Published Date: </strong>{{ book.published_date }}</p>
+{% endblock %}
