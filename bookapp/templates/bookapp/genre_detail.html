@@ -8,25 +8,25 @@
     </a>
   </button>
   <button style="border-color: black;" disabled>
-    <a onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" href="{% url 'genre-delete' book.id %}" style="text-decoration: none;">Delete
+    <a onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" href="{% url 'genre-delete' genre.id %}" style="text-decoration: none;">Delete
     </a>
   </button>
   <button style="border-color: black;" disabled>
-    <a onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" href="{% url 'genre-update' book.id %}" style="text-decoration: none;">Update
+    <a onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" href="{% url 'genre-update' genre.id %}" style="text-decoration: none;">Update
     </a>
   </button>
   <br><br>
   <h3>Genre Detail</h3>
   <p><strong>Name: </strong>{{ genre.name }}</p>
   <p><strong>Books in this genre: </strong></p>
-    {% if genre.book.all %}
+    {% if genre.book_set.all %}
       <ul>
-        {% for book in genre.book.all %}
+        {% for book in genre.book_set.all %}
           <li>{{ book }}</li>
         {% endfor %}
       </ul>
     {% else %}
-      No book for this genre
+      No book in this genre
     {% endif %}
   </p>
 {% endblock %}

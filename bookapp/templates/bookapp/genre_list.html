@@ -17,7 +17,7 @@
           <table style="width:100%">
             {% for genre in genre_list %}
             <tr>
-              <th style="text-align: center;"><a class="mylist-ele" href="">{{ genre.name }}</a></th>
+              <th style="text-align: center;"><a class="mylist-ele" href="{% url 'genre-detail' genre.id %}">{{ genre.name }}</a></th>
               <th><button class="mybutton"><a href="{% url 'genre-delete' genre.id %}">Delete</a></button></th>
               <th><button class="mybutton"><a href="{% url 'genre-update' genre.id %}">Update</a></button></th>
             </tr>
