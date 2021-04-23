@@ -28,6 +28,11 @@ class Bookdeleteview(generic.DeleteView):
 class Bookdetailview(generic.DetailView):
     model = Book
 
+class Bookupdateview(generic.UpdateView):
+    model = Book
+    fields = fields = ['title','isbn','no_of_page','cover_image','description','genre','publisher','author','published_date']
+    success_url = reverse_lazy('book-list')
+
 class Genrelistview(generic.ListView):
     model = Genre
 
