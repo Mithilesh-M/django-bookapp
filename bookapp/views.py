@@ -41,6 +41,9 @@ class Genrecreateview(generic.CreateView):
     fields = ['name']
     success_url = reverse_lazy('genre-list')
 
+class Genredetailview(generic.DetailView):
+    model = Genre
+
 class Genredeleteview(generic.DeleteView):
     model = Genre
     success_url = reverse_lazy('genre-list')

@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{% load static %}
+  <button style="border-radius: 50%;border-color: black;" disabled>
+    <a href="{% url 'genre-list' %}">
+    <i class="fa fa-arrow-left" onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" ></i>
+    </a>
+  </button>
+  <button style="border-color: black;" disabled>
+    <a onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" href="{% url 'genre-delete' book.id %}" style="text-decoration: none;">Delete
+    </a>
+  </button>
+  <button style="border-color: black;" disabled>
+    <a onmouseover = "this.style.color = 'black'" onmouseout = "this.style.color = 'blue'" href="{% url 'genre-update' book.id %}" style="text-decoration: none;">Update
+    </a>
+  </button>
+  <br><br>
+  <h3>Genre Detail</h3>
+  <p><strong>Name: </strong>{{ genre.name }}</p>
+  <p><strong>Books in this genre: </strong></p>
+    {% if genre.book.all %}
+      <ul>
+        {% for book in genre.book.all %}
+          <li>{{ book }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      No book for this genre
+    {% endif %}
+  </p>
+{% endblock %}
