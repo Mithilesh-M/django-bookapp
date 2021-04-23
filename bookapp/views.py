@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Book, Genre, Publisher, Author
 from django.views import generic
 from django.urls import reverse_lazy
+from .filters import BookFilter
 
 def index(request):
     context = {
@@ -92,3 +93,12 @@ class Publisherupdateview(generic.UpdateView):
 
 class Publisherdetailview(generic.DetailView):
     model = Publisher
+
+def Filter(request):
+    books = Book.objects.all()
+    filter = BookFilter(request.GET, queryset=books)
+
+    context = {
+        'filter': filter,
+    }
+    return render(request, 'bookapp/filter.html', context)
