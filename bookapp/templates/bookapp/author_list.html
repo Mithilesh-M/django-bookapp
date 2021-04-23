@@ -17,7 +17,7 @@
           <table style="width:100%">
             {% for author in author_list %}
             <tr>
-              <th style="text-align: center;"><a class="mylist-ele" href="">{{ author.name }}</a></th>
+              <th style="text-align: center;"><a class="mylist-ele" href="{% url 'author-detail' author.id %}">{{ author.name }}</a></th>
               <th><button class="mybutton"><a href="{% url 'author-delete' author.id %}">Delete</a></button></th>
               <th><button class="mybutton"><a href="{% url 'author-update' author.id %}">Update</a></button></th>
             </tr>
